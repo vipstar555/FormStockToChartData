@@ -1,0 +1,2 @@
+# FormStockToChartData
+株価情報をチャート化するプログラムです
