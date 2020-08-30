@@ -76,6 +76,25 @@ namespace StockLib
                 lastClosePrice = priceData.ClosePrice;
             }
         }
+        //%表記へ変更
+        static public IEnumerable<double?> ToPercent(IEnumerable<double?> datas)
+        {
+            var max = datas.Max();
+            var min = datas.Min();
+
+            foreach (var data in datas)
+            {
+                if(data == null)
+                {
+                    yield return null;
+                    continue;
+                }
+
+                yield return (data - min) / (max - min) *100 ;
+            }
+        }
+
+
         //取引比率計算
         public IEnumerable<double?> CalcTorihiki()
         {
@@ -86,7 +105,7 @@ namespace StockLib
                     yield return 0;
                     continue;
                 }
-                yield return priceData.Volume / priceData.OutShare;
+                yield return (double)priceData.Volume / (double)priceData.OutShare;
             }
         }
         //ボラ計算

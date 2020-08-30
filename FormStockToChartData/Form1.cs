@@ -76,23 +76,23 @@ namespace FormStockToChartData
             //5MA乖離
             if (checkBoxMA.Checked)
             {
-                chartForm.SetLineChart("5MA乖離", xData, stockPrices.CalcMovingAverageKairi(5).ToList());
+                chartForm.SetLineChart("5MA乖離", xData, StockPrice.ToPercent(stockPrices.CalcMovingAverageKairi(5)).ToList());
             }
             //TR
             if(checkBoxTR.Checked)
             {
-                var test = stockPrices.CalcTR().ToList();
-                chartForm.SetLineChart("TR", xData, stockPrices.CalcTR().ToList());
+                chartForm.SetLineChart("TR", xData, StockPrice.ToPercent(stockPrices.CalcTR()).ToList());
             }
             //取引比率
             if (checkBoxTorihiki.Checked)
             {
-                chartForm.SetLineChart("取引比率", xData, stockPrices.CalcTorihiki().ToList());
+                var test = stockPrices.CalcTorihiki().ToList();
+                chartForm.SetLineChart("取引比率", xData, StockPrice.ToPercent(stockPrices.CalcTorihiki()).ToList());
             }
             //ボラ
             if (checkBoxVora.Checked)
             {
-                chartForm.SetLineChart("ボラ", xData, stockPrices.CalcBora().ToList());
+                chartForm.SetLineChart("ボラ", xData, StockPrice.ToPercent(stockPrices.CalcBora()).ToList());
             }
             chartForm.Show();
         }

@@ -47,6 +47,7 @@
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(111, 19);
             this.dateTimePickerTo.TabIndex = 0;
+            this.dateTimePickerTo.Value = new System.DateTime(2017, 12, 8, 0, 0, 0, 0);
             // 
             // textBoxCode
             // 
